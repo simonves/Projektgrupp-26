@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include "ev3.h"
+#include "ev3_port.h"
+#include "ev3_tacho.h"
+#include "ev3_light.h"
+#include "ev3_port.h"
+#include "ev3_dc.h"
+#include "ev3_servo.h"
+#include "coroutine.h"
+
+// WIN32 /////////////////////////////////////////
+#ifdef __WIN32__
+
+#include <windows.h>
+
+// UNIX //////////////////////////////////////////
+#else
+
+#include <unistd.h>
+#define Sleep( msec ) usleep(( msec ) * 1000 )
+#endif
+
+enum {
+  SOCKET__NONE_ = 0, IN1 = 0x1L, IN2 = 0x2L, IN3 = 0x4L,
+  IN4 = 0x8L, OUTA = 0x10L, OUTB = 0x20L, OUTC = 0x40L,
+  OUTD = 0x80L
+};
+
+
+int main(void)
+{
+	ev3_init();
+	brick_init();
+        int max_speed;
+
+        if ( tacho_is_plugged(  OUTB | OUTC, LEGO_EV3_L_MOTOR )) {
+    	tacho_set_speed_sp( OUTB | OUTC, tacho_get_max_speed( OUTB, 0 ) * 0.75 );  // 75%
+    	tacho_run_forever(  OUTB | OUTC );
+    	sleep_ms( 3000 );  // 3 sec
+    	tacho_stop( OUTB );
+    	sleep_ms( 2000 );  // 2 sec
+    	tacho_stop( OUTC );
+	}
+
+
+	brick_uninit();
+	ev3_uninit();
+
+	return 0;
+    }
