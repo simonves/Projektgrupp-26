@@ -31,10 +31,12 @@ För att öppna en befintlig C-fil där vi har kod, skriver du följande: nano p
 Önskar du skapa en ny C-fil skriver du nano "namn på filen". Exempel: nano test1
 
 
-I nano texteditorn finns följande kortkommandon: Ctrl + O för att spara (behöver trycka Enter för att verkställa).
+I nano texteditorn finns följande kortkommandon: 
+Om du önskar klistra in kod du kopierat från ev3dev exempel, så högerklickar du i putty-rutan.
+Ctrl + O för att spara (behöver trycka Enter för att verkställa).
 CTRL + X för att stänga nano texteditor
 CTRL + K för att radera raden som pekaren är på, CTRL + U för att ångra.
-CTRL + Y för att scrolla upp och CTRL + V för att scrolla ned.
+CTRL + Y för att scrolla upp och CTRL + V för att scrolla ned. Alternativt använda up/down tangenterna.
 
 
 5)
