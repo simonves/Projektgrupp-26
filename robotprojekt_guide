@@ -1,0 +1,46 @@
+Vid frågor kontakta Simon Vesterlund
+
+
+För att roboten ska komma åt internet behöver man först dela sin internetuppkoppling med den.
+
+1)
+För att dela anslutningen:
+Öppna "kör" genom att trycka Win + R
+Skriv in ncpa.cpl
+Högerklicka på din aktuella internetanslutning, och välj egenskaper
+Tryck på fliken "shared" och välj att dela anslutningen med din EV3 i listan.
+Fullständig guide: https://www.ev3dev.org/docs/tutorials/connecting-to-the-internet-via-usb/
+
+2)
+Öppna Putty
+Ange IP-adressen som syns på displayen
+Logga in med användarnamn "robot" och lösenord "maker"
+
+
+3)
+För att navigera när du loggat in:
+"ls" för att visa mappar i current directory.
+För att hoppa till ett nytt directory, skriv tillexempel: cd ev3dev-c
+För att backa till ett tidigare directory: cd ..
+
+Vår projektmapp i roboten ligger på följande ställe om jag inte minns fel: home/ev3dev-c/eg/robotprojekt
+När du är i detta directory kan du skriva "ls" för att visa filerna som ligger där.
+
+4)
+För att öppna en befintlig C-fil där vi har kod, skriver du följande: nano projekt_testfil.c
+Önskar du skapa en ny C-fil skriver du nano "namn på filen". Exempel: nano test1
+
+
+I nano texteditorn finns följande kortkommandon: Ctrl + O för att spara (behöver trycka Enter för att verkställa).
+CTRL + X för att stänga nano texteditor
+CTRL + K för att radera raden som pekaren är på, CTRL + U för att ångra.
+CTRL + Y för att scrolla upp och CTRL + V för att scrolla ned.
+
+
+5)
+För att kompilera och köra koden görs följande. Spara nano filen där du har koden med CTRL + O, Enter och sedan CTRL + X.
+Kompilering av filen, skriv in: gcc "namn på filen" -lev3dev-c -o "namn på exekveringsfilen"
+Exempel: gcc projekt_testfil.c -lev3dev-c -o projekt_testfil_program
+
+För att köra koden, skriv in: ./(vad du döpte namnet på exekveringsfilen till)
+Exempel: ./projekt_testfil_program
