@@ -27,8 +27,9 @@ Vår projektmapp i roboten ligger på följande ställe om jag inte minns fel: h
 När du är i detta directory kan du skriva "ls" för att visa filerna som ligger där.
 
 4)
+Säkerställ att du befinner dig i mappen robotprojekt.
 För att öppna en befintlig C-fil där vi har kod, skriver du följande: nano projekt_testfil.c
-Önskar du skapa en ny C-fil skriver du nano "namn på filen". Exempel: nano test1
+Önskar du skapa en ny C-fil skriver du nano "namn på filen". Exempel: nano test1.c
 
 
 I nano texteditorn finns följande kortkommandon: 
