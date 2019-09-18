@@ -18,8 +18,8 @@
 
 #include <unistd.h>
 #define Sleep( msec ) usleep(( msec ) * 1000 )
-#define MOTOR_LEFT     OUTC
-#define MOTOR_RIGHT    OUTB
+#define MOTOR_LEFT     OUTB
+#define MOTOR_RIGHT    OUTC
 #define MOTOR_BOTH     ( MOTOR_LEFT | MOTOR_RIGHT )
 #endif
 
