@@ -52,3 +52,13 @@ int main(void)
         tacho_run_forever(  OUTB );
         sleep_ms( 7000 );  // 7 sec
         tacho_stop( OUTB );
+        
+        
+        }
+
+        brick_uninit();
+        ev3_uninit();
+
+        return 0;
+    }
+
