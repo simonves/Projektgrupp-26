@@ -9,6 +9,7 @@
 #include "ev3_servo.h"
 #include "coroutine.h"
 #include "brick.h"
+#include "ev3_sensor.h"
 
 // WIN32 /////////////////////////////////////////
 #ifdef __WIN32__
