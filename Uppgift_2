@@ -31,6 +31,12 @@ int main(void)
         ev3_init();
         brick_init();
         int max_speed;
+        
+        if ( ev3_search_sensor( LEGO_EV3_IR, 0 )) {
+        printf( "IR sensor is found\n" );
+        
+        //kod här
+    }
 
         if ( tacho_is_plugged ( MOTOR_BOTH , LEGO_EV3_L_MOTOR )) {
 
