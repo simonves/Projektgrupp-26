@@ -35,6 +35,8 @@ int main(void)
         if ( ev3_search_sensor( LEGO_EV3_IR, 0 )) {
         printf( "IR sensor is found\n" );
         
+        ir_set_mode_ir_prox;
+        
         //kod här
     }
 
