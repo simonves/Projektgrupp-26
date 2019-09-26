@@ -1,0 +1,23 @@
+#define forwards(speed)    OnFwd(OUT_AC, speed);
+#define backwards(speed)   OnRev(OUT_AC, speed);
+
+inline void turn_90_left(int pwr)
+{
+ RotateMotor(OUT_C, pwr, 445);
+}
+
+inline void turn_90_right(int pwr)
+{
+ RotateMotor(OUT_C, -pwr, 445);
+}
+
+task main()
+{
+ turn_90_left(15);
+
+ //RotateMotorEx(OUT_AC, 20, 4939, 0, true, true);
+ /*drive_250_centimeter();
+ Off(OUT_AC);
+ //funktion som kallar på att släppa bok!
+ */
+ }
