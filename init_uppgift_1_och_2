@@ -1,3 +1,5 @@
+//denna fil är tänkt som det program man kör innan roboten påbörjar någon av uppgift 1 eller 2. 
+
 #define CloseWall 50
 
 inline void turn_90_left(int pwr) //roterar roboten 90 grader åt vänster
