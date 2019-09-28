@@ -1,23 +1,30 @@
-#define forwards(speed)    OnFwd(OUT_AC, speed);
-#define backwards(speed)   OnRev(OUT_AC, speed);
+#define CloseWall 50
 
-inline void turn_90_left(int pwr)
+inline void turn_90_left(int pwr) //roterar roboten 90 grader åt vänster
 {
- RotateMotor(OUT_C, pwr, 445);
+ RotateMotor(OUT_C, pwr, 450);
 }
 
-inline void turn_90_right(int pwr)
+inline void turn_90_right(int pwr) //roterar roboten 90 grader åt höger
 {
- RotateMotor(OUT_C, -pwr, 445);
+ RotateMotor(OUT_C, -pwr, 450);
+}
+
+inline void drop_book() //startar motor för att släppa boken
+{
+ RotateMotor(OUT_B, 48, 75);
+ RotateMotor(OUT_B, -10, 75);
 }
 
 task main()
 {
- turn_90_left(15);
+ SetSensorLowspeed(IN_4); //?
+ while(SensorUS(IN_4)>50) //så länge avståndet är större än 50 meter, roterar roboten
+ {
+  OnRev(OUT_C, 100);
+ }
+  Off(OUT_C);
+  Wait(2000);
+  RotateMotorEx(OUT_AC, 40, 4939, 0, true, true); //kör 2.5 meter
 
- //RotateMotorEx(OUT_AC, 20, 4939, 0, true, true);
- /*drive_250_centimeter();
- Off(OUT_AC);
- //funktion som kallar på att släppa bok!
- */
  }
