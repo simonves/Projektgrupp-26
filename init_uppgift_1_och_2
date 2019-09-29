@@ -21,12 +21,32 @@ inline void drop_book() //startar motor för att släppa boken
 task main()
 {
  SetSensorLowspeed(IN_4); //?
- while(SensorUS(IN_4)>50) //så länge avståndet är större än 50 cm, roterar roboten
+ while(SensorUS(IN_4)>50) //så länge avståndet till närmsta vägg är större än 50 cm, roterar roboten
  {
   OnRev(OUT_C, 100);
  }
-  Off(OUT_C);
+  Off(OUT_C); // När roboten har närmsta vägg ~50 cm eller närmare framför sig, stannar den. 
   Wait(2000);
+  
+  // Kör framåt mot väggen tills trycksensorerna är intryckta
+  
+  // Om endast vänster sensor intryckt (roboten inte 90* vinkelrätt mot väggen)
+  {
+  }
+  
+  // Om endast höger sensor intryckt (roboten inte 90* vinkelrätt mot väggen)
+  {
+  }
+  
+  // Om båda trycksensorer intryckta (roboten ÄR 90* vinkelrätt mot väggen)
+  {
+   //backa 15 cm
+   
+   // kalla på funktion för att svänga vänster eller höger 90* beroende på vilken avlämningspunkt 1-4 vi tilldelades
+   
+  }
+  
+  
   RotateMotorEx(OUT_AC, 40, 4939, 0, true, true); //kör 2.5 meter
 
  }
