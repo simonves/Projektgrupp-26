@@ -21,7 +21,7 @@ inline void drop_book() //startar motor för att släppa boken
 task main()
 {
  SetSensorLowspeed(IN_4); //?
- while(SensorUS(IN_4)>50) //så länge avståndet är större än 50 meter, roterar roboten
+ while(SensorUS(IN_4)>50) //så länge avståndet är större än 50 cm, roterar roboten
  {
   OnRev(OUT_C, 100);
  }
