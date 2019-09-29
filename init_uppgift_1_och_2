@@ -18,6 +18,16 @@ inline void drop_book() //startar motor för att släppa boken
  RotateMotor(OUT_B, -10, 75);
 }
 
+inline void robot_wall_align_left()
+{
+ 
+}
+
+inline void robot_wall_align_right()
+{
+ 
+}
+
 task main()
 {
  SetSensorLowspeed(IN_4); //?
@@ -40,7 +50,7 @@ task main()
   
   // Om båda trycksensorer intryckta (roboten ÄR 90* vinkelrätt mot väggen)
   {
-   //backa 15 cm
+   RotateMotorEx(OUT_AC, 40, -296, 0, true, true); //backa 15 cm
    
    // kalla på funktion för att svänga vänster eller höger 90* beroende på vilken avlämningspunkt 1-4 vi tilldelades
    
