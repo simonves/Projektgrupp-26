@@ -31,6 +31,9 @@ inline void robot_wall_align_right()
 task main()
 {
  SetSensorLowspeed(IN_4); //?
+ SetSensorTouch(IN_1); // IN_1 = VÄNSTER TOUCH-SENSOR
+ SetSensorTouch(IN_2); // IN_2 = HÖGER TOUCH-SENSOR
+ 
  while(SensorUS(IN_4)>50) //så länge avståndet till närmsta vägg är större än 50 cm, roterar roboten
  {
   OnRev(OUT_C, 100);
@@ -39,24 +42,33 @@ task main()
   Wait(2000);
   
   // Kör framåt mot väggen tills trycksensorerna är intryckta
+  while(SENSOR_1 == 0 && SENSOR_2 == 0) // medan sensorerna inte är intryckta kör den mot väggen
+  {
+   OnFwd(OUT_AC, 40);
+  }
+  Off(OUT_AC);
   
   // Om endast vänster sensor intryckt (roboten inte 90* vinkelrätt mot väggen)
+  if(SENSOR_1 == 1 && SENSOR_2 == 0)
   {
   }
   
   // Om endast höger sensor intryckt (roboten inte 90* vinkelrätt mot väggen)
+  if(SENSOR_1 == 0 && SENSOR_2 == 1)
   {
   }
   
   // Om båda trycksensorer intryckta (roboten ÄR 90* vinkelrätt mot väggen)
+  if(SENSOR_1 == 1 && SENSOR_2 == 1)
   {
    RotateMotorEx(OUT_AC, 40, -296, 0, true, true); //backa 15 cm
    
-   // kalla på funktion för att svänga vänster eller höger 90* beroende på vilken avlämningspunkt 1-4 vi tilldelades
-   
+   // kalla på funktion för att svänga vänster eller höger 90* beroende på vilken avlämningspunkt 1-2 vi tilldelades
   }
   
   
   RotateMotorEx(OUT_AC, 40, 4939, 0, true, true); //kör 2.5 meter
+  
+  // släpp sedan av boken
 
  }
