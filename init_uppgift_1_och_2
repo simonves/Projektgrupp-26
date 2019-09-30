@@ -1,6 +1,6 @@
 //denna fil är tänkt som det program man kör innan roboten påbörjar någon av uppgift 1 eller 2. 
 
-#define CloseWall 50
+#define CloseWall 65
 
 inline void turn_90_left(int pwr) //roterar roboten 90 grader åt vänster
 {
@@ -34,7 +34,7 @@ task main()
  SetSensorTouch(IN_1); // IN_1 = VÄNSTER TOUCH-SENSOR
  SetSensorTouch(IN_2); // IN_2 = HÖGER TOUCH-SENSOR
  
- while(SensorUS(IN_4)>50) //så länge avståndet till närmsta vägg är större än 50 cm, roterar roboten
+ while(SensorUS(IN_4)>65) //så länge avståndet till närmsta vägg är större än 50 cm, roterar roboten
  {
   OnRev(OUT_C, 100);
  }
