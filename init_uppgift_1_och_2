@@ -71,9 +71,9 @@ task main()
   // Om båda trycksensorer intryckta (roboten ÄR 90* vinkelrätt mot väggen)
   if(SENSOR_1 == 1 && SENSOR_2 == 1)
   {
-   RotateMotorEx(OUT_AC, 40, -296, 0, true, true); //backa 15 cm
+   RotateMotorEx(OUT_AC, -40, 296, 0, true, true); //backa 15 cm
    
-   // kalla på funktion för att svänga vänster eller höger 90* beroende på vilken avlämningspunkt 1-2 vi tilldelades
+   // turn_90_left(int_pwr); // Sväng sedan 90* åt vänster
   }
   
   
