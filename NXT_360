@@ -8,8 +8,32 @@
 //om new > old, värdet ökar, stanna upp, och sväng roboten motsatt håll. Kontrollera sedan att värdet minskar som ovanstående.
 
 // för 360. 
-// avstånd = SetSensorLowspeed(IN_4);
-// while(avstånd < SetSensorLowspeed(IN_4);
+
+
+// distance_old = SensorUS(IN_4);
+
+
+// while(avstånd < SensorUS(IN_4);
+
+/*
+
+
+
+
+while(SensorUS(IN_4)>70) //så länge avståndet till närmsta vägg är större än 70 cm, roterar roboten
+ {
+  OnRev(OUT_C, 45);
+  distance_old = SensorUS(IN_4);
+ }
+  Off(OUT_C);
+  Wait(1000);
+  
+
+
+
+*/
+
+
 
 inline void turn_90_left(int pwr) //roterar roboten 90 grader åt vänster
 {
