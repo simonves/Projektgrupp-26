@@ -1,0 +1,90 @@
+//denna fil är tänkt som det program man kör innan roboten påbörjar någon av uppgift 1 eller 2.
+
+// OnFwdSync - titta över denna !
+
+inline void turn_90_left(int pwr) //roterar roboten 90 grader åt vänster
+{
+ RotateMotor(OUT_C, pwr, 515);
+}
+
+inline void turn_90_right(int pwr) //roterar roboten 90 grader åt höger
+{
+ RotateMotor(OUT_C, -pwr, 515);
+}
+
+inline void drop_book() //startar motor för att släppa boken
+{
+ RotateMotor(OUT_B, 48, 75);
+ RotateMotor(OUT_B, -10, 75);
+}
+
+inline void robot_wall_align_left()
+{
+
+}
+
+inline void robot_wall_align_right()
+{
+
+}
+
+task main()
+{
+ SetSensorLowspeed(IN_4); //?
+ SetSensorTouch(IN_1); // IN_1 = VÄNSTER TOUCH-SENSOR
+ SetSensorTouch(IN_3); // IN_3 = HÖGER TOUCH-SENSOR
+
+ while(SensorUS(IN_4)>60) //så länge avståndet till närmsta vägg är större än 65 cm, roterar roboten
+ {
+  OnRev(OUT_C, 45);
+ }
+  Off(OUT_C);
+  Wait(1000);
+  // Kör framåt mot väggen tills trycksensorerna är intryckta
+  while(SENSOR_1 == 0 && SENSOR_3 == 0)
+  {
+   OnFwdSync(OUT_AC, 50, -3);
+  }
+  Off(OUT_AC);
+
+  // Om endast vänster sensor intryckt (roboten inte 90* vinkelrätt mot väggen)
+  if(SENSOR_1 == 1 && SENSOR_3 == 0)
+  {
+   while(SENSOR_3 == 0)
+   {
+    OnFwd(OUT_C, 65);
+   }
+  }
+  Off(OUT_C);
+
+  // Om endast höger sensor intryckt (roboten inte 90* vinkelrätt mot väggen)
+  if(SENSOR_1 == 0 && SENSOR_3 == 1)
+  {
+   while(SENSOR_1 == 0)
+   {
+    OnFwd(OUT_A, 65);
+   }
+  }
+  Off(OUT_A);
+  Wait(1000);
+
+  // Om båda trycksensorer intryckta (roboten ÄR 90* vinkelrätt mot väggen)
+  if(SENSOR_1 == 1 && SENSOR_3 == 1)
+  {
+   RotateMotorEx(OUT_AC, -50, 395, -1, true, true); //backa 15 cm
+  }
+
+  Wait(1000);
+  RotateMotor(OUT_C, 40, 500);
+  //turn_90_left(40); // Sväng sedan 90* åt vänster
+  Off(OUT_C);
+  Wait(2000);
+  OnFwdSync(OUT_AC, 50, -1);
+  Wait(1000);
+  Off(OUT_AC);
+  RotateMotorEx(OUT_AC, 50, 5334, -1, true, true); //kör 2.5 meter
+  //RotateMotor(OUT_AC, 40, 5334);
+  Wait(2000);
+  drop_book(); // släpp sedan av boken
+
+ }
