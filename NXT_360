@@ -2,6 +2,10 @@
 
 // OnFwdSync - titta över denna !
 
+// för 360. 
+// avstånd = SetSensorLowspeed(IN_4);
+// while(avstånd < SetSensorLowspeed(IN_4);
+
 inline void turn_90_left(int pwr) //roterar roboten 90 grader åt vänster
 {
  RotateMotor(OUT_C, pwr, 515);
