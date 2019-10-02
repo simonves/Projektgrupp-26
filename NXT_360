@@ -2,6 +2,11 @@
 
 // OnFwdSync - titta över denna !
 
+
+//måste använda lokal variabel, samt 2 st variabler för att kunna jämföra old -> new
+// ex. om old > new, värdet minskar, går åt rätt håll.
+//om new > old, värdet ökar, stanna upp, och sväng roboten motsatt håll. Kontrollera sedan att värdet minskar som ovanstående.
+
 // för 360. 
 // avstånd = SetSensorLowspeed(IN_4);
 // while(avstånd < SetSensorLowspeed(IN_4);
