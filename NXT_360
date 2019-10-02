@@ -9,6 +9,11 @@
 
 // för 360. 
 
+// måste jämföra ett statiskt värde och sensor värdet. while det görs, sväng
+
+// så länge värdet minskar uppfylls villkoret. När sensors värde börjar öka, blir sensor current value == sensor prev value +1
+// och då stannar while-loopen
+
 
 // distance_old = SensorUS(IN_4);
 
@@ -17,18 +22,26 @@
 
 /*
 
-
-
+distance_old = 60;
 
 while(SensorUS(IN_4)>70) //så länge avståndet till närmsta vägg är större än 70 cm, roterar roboten
  {
   OnRev(OUT_C, 45);
-  distance_old = SensorUS(IN_4);
  }
   Off(OUT_C);
   Wait(1000);
   
-
+  distance_new = SensorUS(IN_4) + 1;
+  
+  while(SensorUS(IN_4) < distance_new)
+  {
+   OnRev(OUT_C, 45); // Så länge sensorns värde minskar fortsätter roboten att svänga. 
+   // När sensors värde plötsligt börjar öka, dvs roboten vinkelrätt mot väggen, så blir sensorns värde == sensorns värde +1,
+   // och då uppfylls inte längre while loopen och roboten stannar.
+  }
+Off(OUT_C);
+ Wait(1000);
+  
 
 
 */
