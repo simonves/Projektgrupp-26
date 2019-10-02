@@ -15,14 +15,13 @@
 // och då stannar while-loopen
 
 
-// distance_old = SensorUS(IN_4);
+// while(avstånd < SensorUS(IN_4)
 
 
-// while(avstånd < SensorUS(IN_4);
+// Eller sensorns värde < föregående sensorns värde
+
 
 /*
-
-distance_old = 60;
 
 while(SensorUS(IN_4)>70) //så länge avståndet till närmsta vägg är större än 70 cm, roterar roboten
  {
@@ -31,9 +30,13 @@ while(SensorUS(IN_4)>70) //så länge avståndet till närmsta vägg är större
   Off(OUT_C);
   Wait(1000);
   
-  distance_new = SensorUS(IN_4) + 1;
+  distance = SensorUS(IN_4) + 1;
   
-  while(SensorUS(IN_4) < distance_new)
+  
+  distance_new = SensorUS(IN_4);
+  distance_old = SensorUS(IN_4);
+  
+  while(SensorUS(IN_4) < distance)
   {
    OnRev(OUT_C, 45); // Så länge sensorns värde minskar fortsätter roboten att svänga. 
    // När sensors värde plötsligt börjar öka, dvs roboten vinkelrätt mot väggen, så blir sensorns värde == sensorns värde +1,
