@@ -32,7 +32,7 @@ task main()
 {
  SetSensorLowspeed(IN_4); //?
  SetSensorTouch(IN_1); // IN_1 = VÄNSTER TOUCH-SENSOR
- SetSensorTouch(IN_3); // IN_2 = HÖGER TOUCH-SENSOR
+ SetSensorTouch(IN_3); // IN_3 = HÖGER TOUCH-SENSOR
 
  while(SensorUS(IN_4)>60) //så länge avståndet till närmsta vägg är större än 65 cm, roterar roboten
  {
@@ -72,8 +72,13 @@ task main()
   // Om båda trycksensorer intryckta (roboten ÄR 90* vinkelrätt mot väggen)
   if(SENSOR_1 == 1 && SENSOR_3 == 1)
   {
-   RotateMotorEx(OUT_AC, -60, 296, 0, true, true); //backa 15 cm
+   //RotateMotorEx(OUT_AC, -60, 296, 0, true, true); //backa 15 cm
+   while(SensorUS(IN_4)<15)
+   {
+    OnRev(OUT_AC, 50);
+   }
   }
+  
   turn_90_left(60); // Sväng sedan 90* åt vänster
   Wait(1000);
   RotateMotorEx(OUT_AC, 50, 4939, 0, true, true); //kör 2.5 meter
