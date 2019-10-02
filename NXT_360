@@ -82,7 +82,7 @@ task main()
   OnFwdSync(OUT_AC, 50, -1);
   Wait(1000);
   Off(OUT_AC);
-  RotateMotorEx(OUT_AC, 50, 5334, -1, true, true); //kör 2.5 meter
+  RotateMotorEx(OUT_AC, 50, 5334, -1, true, true); //kör 2.7 meter
   //RotateMotor(OUT_AC, 40, 5334);
   Wait(2000);
   drop_book(); // släpp sedan av boken
