@@ -25,17 +25,16 @@
 
 dist = SensorUS(IN_4);
 
+----------------------------
+start_value = 70;
 
-start = 70;
+//svänga under 1 sekund för att minska distance till väggen med ett litet värde
 
 for (int i = start_value; SensorUS(IN_4) < i; i-SensorUS(IN_4);) {
 
 start_value = SensorUS(IN_4) - start_value;
-
-i - SensorUS(IN_4);
-
 }
-
+--------------------------------
 
 
 int start = 70;
