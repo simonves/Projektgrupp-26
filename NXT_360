@@ -23,6 +23,50 @@
 
 /*
 
+dist = SensorUS(IN_4);
+
+
+
+
+
+int start = 70;
+
+int dist = SensorUS(IN_4);
+
+it_1: 2
+it_2: 64
+it_3:
+
+int dist_iteration_1 = start - SensorUS(IN_4);
+// sväng lite
+int dist_iteration_2 = SensorUS(IN_4) - dist_iteration_1;
+// sväng lite
+int dist_iteration_3 = dist_iteration_2 - SensorUS(IN_4);
+
+int_compare = dist_iteration_2 
+
+
+
+int old_dist;
+
+while (old_dist > dist) {
+
+old_dist =  =  - SensorUS(IN_4);
+
+}
+
+
+
+
+
+
+for(int i = 0; i < 2000; i+20;) {
+RotateMotor(OUT_C, 40, 200);
+dist = SensorUS(IN_4);
+dist_it = i * 200;
+}
+
+
 while(SensorUS(IN_4)>70) //så länge avståndet till närmsta vägg är större än 70 cm, roterar roboten
  {
   OnRev(OUT_C, 45);
