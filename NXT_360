@@ -26,6 +26,15 @@
 dist = SensorUS(IN_4);
 
 
+start = 70;
+
+for (int i = start_value; SensorUS(IN_4) < i; i-SensorUS(IN_4);) {
+
+start_value = SensorUS(IN_4) - start_value;
+
+i - SensorUS(IN_4);
+
+}
 
 
 
@@ -39,9 +48,9 @@ it_3:
 
 int dist_iteration_1 = start - SensorUS(IN_4);
 // sväng lite
-int dist_iteration_2 = SensorUS(IN_4) - dist_iteration_1;
+int dist_iteration_2 = start - SensorUS(IN_4);
 // sväng lite
-int dist_iteration_3 = dist_iteration_2 - SensorUS(IN_4);
+int dist_iteration_3 = start - SensorUS(IN_4);
 
 int_compare = dist_iteration_2 
 
