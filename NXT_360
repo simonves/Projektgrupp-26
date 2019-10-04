@@ -3,25 +3,43 @@ task main ()
 {
  SetSensorLowspeed(IN_4);
 
- int array[20];
+ int array[25];
  int n=1;
  int minimum;
  int location = 1;
  int c;
 
- array[0] = SensorUS(IN_4);
- for(int i=0; i <= 19; i++)
+ while(SensorUS(IN_4) < 81)
  {
-  RotateMotor(OUT_C, 50, 100);
-  Wait(800);
+  OnRev(OUT_C, 50);
+ }
+// Wait(2000);
+ while(SensorUS(IN_4) >= 75)
+ {
+  OnRev(OUT_C, 50);
+ }
+ Off(OUT_C);
+ Wait(2000);
+ while(SensorUS(IN_4) == 80)
+ {
+ Off(OUT_C);
+ }
+ 
+
+ array[0] = SensorUS(IN_4);
+ for(int i=0; i <= 24; i++)
+ {
+  RotateMotor(OUT_C, -50, 20);
+  Wait(500);
   array[n] = SensorUS(IN_4);
   n++;
  }
   Off(OUT_C);
 
+
   minimum = array[0];
   
-  for (c = 1; c < 20; c++)
+  for (c = 1; c < 25; c++)
   {
    if (array[c] < minimum)
    {
@@ -30,6 +48,6 @@ task main ()
    }
   }
   Wait(2000);
-  RotateMotor(OUT_C, 50, (location*100));
+  RotateMotor(OUT_C, 50, (location*20));
   
 }
